@@ -1,4 +1,4 @@
-# Ios App Payment Sample
+# Ios App Purchase Sample
 
 React와 Capacitor 기반 앱의 외부 인앱결제 라이브러리 없는 iOS 인앱결제(StoreKit 2) 구현 및 테스트 샘플
 
