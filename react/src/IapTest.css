@@ -1,0 +1,218 @@
+/* iOS 시스템 색상 (HIG 라이트 모드와 다크 모드 기본값) */
+:root {
+  color-scheme: light dark;
+  --bg: #f2f2f7;
+  --cell: #ffffff;
+  --cell-pressed: #d1d1d6;
+  --label: #000000;
+  --secondary-label: rgba(60, 60, 67, 0.6);
+  --separator: rgba(60, 60, 67, 0.29);
+  --tint: #007aff;
+  --tint-fill: rgba(0, 122, 255, 0.12);
+  --tint-fill-pressed: rgba(0, 122, 255, 0.24);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --cell: #1c1c1e;
+    --cell-pressed: #3a3a3c;
+    --label: #ffffff;
+    --secondary-label: rgba(235, 235, 245, 0.6);
+    --separator: rgba(84, 84, 88, 0.65);
+    --tint: #0a84ff;
+    --tint-fill: rgba(10, 132, 255, 0.18);
+    --tint-fill-pressed: rgba(10, 132, 255, 0.32);
+  }
+}
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--label);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+}
+
+.screen {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 8px) max(16px, env(safe-area-inset-right))
+    calc(env(safe-area-inset-bottom) + 24px) max(16px, env(safe-area-inset-left));
+}
+
+.large-title {
+  margin: 12px 4px 8px;
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 700;
+  letter-spacing: 0.37px;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.section-header {
+  margin: 0 16px 6px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: -0.08px;
+  color: var(--secondary-label);
+}
+
+.section-footer {
+  margin: 6px 16px 0;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.08px;
+  color: var(--secondary-label);
+}
+
+.group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--cell);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 11px 16px;
+  box-sizing: border-box;
+}
+
+.row + .row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 0;
+  height: 1px;
+  background: var(--separator);
+  transform: scaleY(0.5);
+  transform-origin: top;
+  z-index: 1;
+}
+
+.row-flush {
+  padding: 0;
+}
+
+.row-empty {
+  color: var(--secondary-label);
+}
+
+.row-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-title {
+  overflow-wrap: anywhere;
+}
+
+.row-subtitle {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+  color: var(--secondary-label);
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  font: inherit;
+  letter-spacing: inherit;
+  border: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--tint);
+}
+
+.row-button {
+  width: 100%;
+  margin: 0;
+  background: var(--cell);
+  color: var(--tint);
+  text-align: left;
+  transition: background-color 150ms ease-out;
+}
+
+.row-button:focus-visible {
+  outline-offset: -2px;
+}
+
+.row-button:active {
+  background: var(--cell-pressed);
+  transition-duration: 0ms;
+}
+
+.capsule-button {
+  position: relative;
+  flex-shrink: 0;
+  min-width: 72px;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 15px;
+  background: var(--tint-fill);
+  color: var(--tint);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.24px;
+  transition: background-color 150ms ease-out;
+}
+
+/* 시각적 크기 30px 유지, 터치 영역은 44px로 확장 */
+.capsule-button::after {
+  content: '';
+  position: absolute;
+  inset: -7px -4px;
+}
+
+.capsule-button:focus-visible {
+  outline-offset: 2px;
+}
+
+.capsule-button:active {
+  background: var(--tint-fill-pressed);
+  transition-duration: 0ms;
+}
+
+.log-row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row-button,
+  .capsule-button {
+    transition: none;
+  }
+}

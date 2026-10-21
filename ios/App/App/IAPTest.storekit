@@ -1,0 +1,49 @@
+{
+  "identifier" : "4A7C1E20",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "30000",
+      "familyShareable" : false,
+      "internalID" : "4A7C1E21",
+      "localizations" : [
+        {
+          "description" : "로컬 테스트용 상품",
+          "displayName" : "진단 응시권 30,000원",
+          "locale" : "ko_KR"
+        }
+      ],
+      "productID" : "assessment.ticket.30000",
+      "referenceName" : "assessment.ticket.30000",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "50000",
+      "familyShareable" : false,
+      "internalID" : "4A7C1E22",
+      "localizations" : [
+        {
+          "description" : "로컬 테스트용 상품",
+          "displayName" : "진단 응시권 50,000원",
+          "locale" : "ko_KR"
+        }
+      ],
+      "productID" : "assessment.ticket.50000",
+      "referenceName" : "assessment.ticket.50000",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_locale" : "ko_KR",
+    "_storefront" : "KOR"
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
